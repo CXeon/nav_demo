@@ -1,14 +1,14 @@
 Application:
   Company: "Company"
   Project: "Nav"
-  ServiceName: "nav_demo"
+  ServiceName: "flm-nav-demo-svc"
   LogLevel: "Debug"
   Env: "Dev"
   Host: "127.0.0.1"
   Port: 10000
 Postgresql:
-  Host:     "192.168.101.99"
+  Host:     ""
   Port     : 5432
   User     : "postgres"
-  DbName   : "navdemo"
-  Password : "2d29d1f5ebf04d118ba2e957f8a1b098"
+  DbName   : ""
+  Password : ""

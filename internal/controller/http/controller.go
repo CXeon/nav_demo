@@ -1,19 +1,22 @@
 package http
 
 import (
+	"github.com/CXeon/micro_contrib/log"
 	"github.com/CXeon/nav_demo/config"
 )
 
 type controller struct {
-	conf *config.Config
+	conf   *config.Config
+	logger *log.Logger
 }
 
-func NewController(conf *config.Config) *controller {
-	if conf == nil {
+func NewController(conf *config.Config, logger *log.Logger) *controller {
+	if conf == nil || logger == nil {
 		return nil
 	}
 
 	return &controller{
-		conf: conf,
+		conf:   conf,
+		logger: logger,
 	}
 }

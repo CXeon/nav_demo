@@ -8,6 +8,7 @@ import (
 	"github.com/CXeon/nav_demo/config"
 	"github.com/CXeon/nav_demo/internal/controller/http"
 	"github.com/CXeon/nav_demo/internal/dao"
+	"github.com/CXeon/nav_demo/internal/model"
 	"github.com/CXeon/nav_demo/internal/service"
 	"go.uber.org/zap/zapcore"
 	"golang.org/x/sync/errgroup"
@@ -18,7 +19,7 @@ import (
 	"syscall"
 )
 
-//初始化并启动服务
+// Init 初始化并启动服务
 func Init() {
 
 	//加载配置文件
@@ -51,6 +52,12 @@ func Init() {
 		logger.Fatalf("connect postgresql err: %s", err.Error())
 	}
 
+	//TODO 自动创建表（默认应当禁用）
+	err = model.AutoMigrate(pgsqlCloud.Db)
+	if err != nil {
+		logger.Fatalf("connect postgresql err: %s", err.Error())
+	}
+
 	//根据pgsql客户端创建Dao
 	postgresqlCloudDao := dao.NewPostgresqlCloudDao(pgsqlCloud)
 
@@ -65,7 +72,7 @@ func Init() {
 
 	eg.Go(func() error {
 		logger.Info("start http server")
-		err = http.Start(conf)
+		err = http.Start(conf, logger)
 		if err != nil {
 			if !errors.Is(httpOri.ErrServerClosed, err) {
 				logger.Fatalf("start http err: %s", err.Error())

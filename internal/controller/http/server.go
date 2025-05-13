@@ -3,6 +3,7 @@ package http
 import (
 	"context"
 	"fmt"
+	"github.com/CXeon/micro_contrib/log"
 	"github.com/CXeon/nav_demo/config"
 	"net/http"
 	"time"
@@ -16,11 +17,11 @@ const (
 
 var httpServer *http.Server
 
-func Start(conf *config.Config) error {
+func Start(conf *config.Config, logger *log.Logger) error {
 	addr := fmt.Sprintf("%s:%d", conf.Application.Host, conf.Application.Port)
 	httpServer = &http.Server{
 		Addr:         addr,
-		Handler:      initRoutes(conf),
+		Handler:      initRoutes(conf, logger),
 		ReadTimeout:  defaultReadTimeout,
 		WriteTimeout: defaultWriteTimeout,
 	}
