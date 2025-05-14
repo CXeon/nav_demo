@@ -2,6 +2,12 @@ github.com/BurntSushi/toml v1.5.0 h1:W5quZX/G/csjUnuI8SUYlsHs9M38FC7znL0lIO+DvMg
 github.com/BurntSushi/toml v1.5.0/go.mod h1:ukJfTF/6rtPPRCnwkur4qwRxa8vTRFBF0uk2lLoLwho=
 github.com/CXeon/micro_contrib v0.0.0-20250509081508-c97c2ebe411c h1:ez3jc1CbQOidDHTt3/eHp8sXjh75W7uYqAnY7P+PYG8=
 github.com/CXeon/micro_contrib v0.0.0-20250509081508-c97c2ebe411c/go.mod h1:ge+iVNxHaSxOxeRom+dZBKi3FsKg9Me11fm+xrNp3CU=
+github.com/CXeon/micro_contrib v0.0.0-20250514015243-24d640c913df h1:dKGH9+TvnpwPGnZSSXDgyRhKqjKPhomjL9N/ghZbPHo=
+github.com/CXeon/micro_contrib v0.0.0-20250514015243-24d640c913df/go.mod h1:ge+iVNxHaSxOxeRom+dZBKi3FsKg9Me11fm+xrNp3CU=
+github.com/CXeon/micro_contrib v0.0.0-20250514020411-f0e4e8793ede h1:rGJc5Od+gG05LJAhuJ1/RrPG2ShfTeNJYQXarPRExV0=
+github.com/CXeon/micro_contrib v0.0.0-20250514020411-f0e4e8793ede/go.mod h1:ge+iVNxHaSxOxeRom+dZBKi3FsKg9Me11fm+xrNp3CU=
+github.com/CXeon/micro_contrib v0.0.0-20250514093210-698704011aa8 h1:z3cmmUfLqLo6hDt3PMffMfCNNJSOI3DJ2NSpYSx7l2Q=
+github.com/CXeon/micro_contrib v0.0.0-20250514093210-698704011aa8/go.mod h1:qtFopU2t6L1AHIwY+PKZyw0n98hxINtx2gmd3i20pDk=
 github.com/alecthomas/assert/v2 v2.10.0 h1:jjRCHsj6hBJhkmhznrCzoNpbA3zqy0fYiUcYZP/GkPY=
 github.com/alecthomas/assert/v2 v2.10.0/go.mod h1:Bze95FyfUr7x34QZrjL+XP+0qgp/zg8yS+TtBj1WA3k=
 github.com/alecthomas/repr v0.4.0 h1:GhI2A8MACjfegCPVq9f1FLvIBS+DrQ2KQBFZP1iFzXc=

@@ -1,9 +1,11 @@
 package service
 
 import (
+	"github.com/CXeon/micro_contrib/gorm/datatypes/geometry"
 	"github.com/CXeon/nav_demo/internal/entity"
 	"github.com/CXeon/nav_demo/internal/model"
 	"github.com/twpayne/go-geom"
+	"gorm.io/gorm"
 )
 
 var CityWaySvc *cityWayService
@@ -21,8 +23,7 @@ func newCityWayService(svc *Service) {
 // CreateOne 创建一条路线数据
 func (svc *cityWayService) CreateOne(data entity.CityWay) (id uint, err error) {
 
-	lineStr := geom.NewLineString(geom.XY)
-	lineStr.SetSRID(4326)
+	lineStr := geometry.NewGeoLine()
 
 	coords := make([]geom.Coord, len(data.LonLat))
 
@@ -30,14 +31,14 @@ func (svc *cityWayService) CreateOne(data entity.CityWay) (id uint, err error) {
 		coords[i] = geom.Coord{c[0], c[1]}
 	}
 
-	lineString, err := lineStr.SetCoords(coords)
+	_, err = lineStr.SetCoords(coords)
 	if err != nil {
 		return 0, err
 	}
-
 	//实体转模型
 	m := model.CityWay{
-		Geom:        lineString,
+		Model:       gorm.Model{ID: 1},
+		Geom:        lineStr,
 		Cost:        data.Cost,
 		ReverseCost: data.ReverseCost,
 		Source:      0,

@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.23.6
 
 require (
-	github.com/CXeon/micro_contrib v0.0.0-20250509081508-c97c2ebe411c
+	github.com/CXeon/micro_contrib v0.0.0-20250514093210-698704011aa8
 	github.com/gin-gonic/gin v1.10.0
 	github.com/spf13/viper v1.20.1
 	github.com/twpayne/go-geom v1.6.1

@@ -7,8 +7,8 @@ Application:
   Host: "127.0.0.1"
   Port: 10000
 Postgresql:
-  Host:     ""
+  Host:     "8.137.119.140"
   Port     : 5432
   User     : "postgres"
-  DbName   : ""
-  Password : ""
+  DbName   : "navdemo"
+  Password : "Chenhui@123\\!"

@@ -1,6 +1,9 @@
 package http
 
 import (
+	"github.com/CXeon/micro_contrib/err_code"
+	"github.com/CXeon/micro_contrib/errors"
+	"github.com/CXeon/micro_contrib/response"
 	"github.com/CXeon/nav_demo/internal/entity"
 	"github.com/CXeon/nav_demo/internal/service"
 	"github.com/gin-gonic/gin"
@@ -16,17 +19,17 @@ func (c *controller) CreateOne(ctx *gin.Context) {
 
 	err = ctx.ShouldBindJSON(&data)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		response.ResponseError(ctx, http.StatusBadRequest, errors.Wrap(err_code.ErrCommonServer, err.Error()))
 		return
 	}
 
 	//执行业务
 	id, err := service.CityWaySvc.CreateOne(data)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		response.ResponseError(ctx, http.StatusInternalServerError, errors.Wrap(err_code.ErrCommonServer, err.Error()))
 		return
 	}
-	ctx.JSON(http.StatusCreated, gin.H{"id": id})
+	response.ResponseSuccess(ctx, map[string]uint{"id": id})
 	return
 }
 
@@ -39,16 +42,16 @@ func (c *controller) FindOne(ctx *gin.Context) {
 
 	idInt, err := strconv.Atoi(idStr)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		response.ResponseError(ctx, http.StatusBadRequest, errors.Wrap(err_code.ErrCommonServer, err.Error()))
 		return
 	}
 
 	//执行业务
 	one, err := service.CityWaySvc.FindOne(uint(idInt))
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		response.ResponseError(ctx, http.StatusBadRequest, errors.Wrap(err_code.ErrCommonServer, err.Error()))
 		return
 	}
-	ctx.JSON(http.StatusOK, gin.H{"data": one})
+	response.ResponseSuccess(ctx, one)
 	return
 }
